@@ -1,0 +1,54 @@
+package questao02;
+public class Pilha<T> {
+    T[]arrayelem;
+    int topo;
+    int index = 0;
+    public Pilha(int max){
+        this.arrayelem = (T[]) new Object[max];
+        this.topo = -1;
+    }
+    public boolean estaCheia(){
+      return this.topo == this.arrayelem.length-1;
+    }
+    public boolean estaVazia(){
+        return this.topo == -1;
+    }
+    public boolean inserir(T elem){
+        if(!this.estaCheia()){
+            this.arrayelem[++ this.topo] = elem;
+            return true;
+        }
+        return false;
+    }
+    public T remover(){
+        if(!this.estaVazia()){
+           T aux = this.arrayelem[this.topo];
+            this.topo--;
+            return aux;
+        }
+        return null;
+    }
+public  boolean verificadordeEquilibrio(String s) {
+        Pilha<Character> p1  = new Pilha<Character>(55);
+        for(int i = 0; i < s.length(); i++) { //For para  fazer a varredura 
+            char c = s.charAt(i); // O char.At
+            if(c == '[' || c == '(' || c == '{' ) {     
+                p1.inserir(c);
+            } else if(c == ']') {
+                if(p1.estaVazia() || p1.remover()!= '[') {
+                    return false;
+                }
+            } else if(c == ')') {
+                if(p1.estaVazia()  || p1.remover() != '(') {
+                    return false;
+                }           
+            } else if(c == '}') {
+                if(p1.estaVazia()|| p1.remover()!= '{') {
+                    return false;
+                }
+            }
+
+        }
+        return p1.estaVazia();
+    }
+}
