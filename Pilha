@@ -1,0 +1,48 @@
+package estacionamento;
+public class Pilha<T>{
+    int topo;
+    T[] ele;
+           
+    public Pilha(int max){
+        ele = (T[]) new Object[max];
+        topo = -1;
+    }
+    public boolean estaCheia(){
+        return topo == ele.length-1;
+    }
+    public boolean estaVazia(){
+        return topo == -1;
+    }
+    public boolean inserir(T elem){
+        if(!this.estaCheia()){
+            topo++;
+            ele[topo]= elem;
+            return true;
+        }
+        return false;
+    }
+    public T remover(){
+ 
+        if(!this.estaVazia()){
+  
+            return ele[topo--];
+           
+        }
+        return null;
+    }
+      public String toString(){
+           
+            Pilha p2 = new Pilha( this.ele.length );
+            String s = "[";
+            
+            while( !this.estaVazia() ){
+                T a = this.remover();
+               p2.inserir(a);
+               s += a + ",";
+            }
+            s += "]";
+            
+            return s;
+            
+        }
+}
