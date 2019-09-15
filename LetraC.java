@@ -1,26 +1,34 @@
 package questao01;
-public class LetraC {
+public class LetraD {
     public static void main(String[] args) {
-          Pilha p = new Pilha(5);
-          Pilha paux = new Pilha(5);
-          for (int i = 1; i < 6; i++) {
-            p.inserir(i);
-        }
-          System.out.println(p);
-          
+   Pilha<Integer>p = new Pilha<>(5);
+   Pilha<Integer>p2 = new Pilha<>(5);
+    p.inserir(5);
+    p.inserir(4);
+    p.inserir(3);
+    p.inserir(2);
+    p.inserir(1);
            int n= 4;
-         int i =100;
-           for ( int j = 1; j <6; j++) {
+           int i =100;     
+            for(int j = 0;j<=n;j++){
+                if(n!=j){
             p.remover();
-             paux.inserir(j);
-        }
-        while(p.inserir(paux.remover())){
-    }
-        
-        for (int j = 1; j <=n; j++) {
-            p.remover();
-        }
-        p.inserir(i);
-         System.out.println(p);
+             
+                }
+         }
+            p.inserir(i);
+              while(p2.inserir(p.remover())){}
+         while(p.inserir(p2.remover())){}
+         while(p2.inserir(p.remover())){}
+       for(int j = 0;j<=n;j++){
+                if(n!=j){
+         p.remover();
+          
+                }
+         }
+          System.out.println(p2);
     }
 }
+
+    
+    
