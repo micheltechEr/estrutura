@@ -12,17 +12,20 @@ public class LetraD {
            int i =100;     
             for(int j = 0;j<=n;j++){
                 if(n!=j){
-             p.remover();
-             p2.inserir(j);
+            Integer rem = p.remover();
+             p2.inserir(rem);
                 }
          }
-          p.inserir(i);
+            p.inserir(i);
+              while(p2.inserir(p.remover())){}
          while(p.inserir(p2.remover())){}
          while(p2.inserir(p.remover())){}
-                for(int j = 0;j<=n;j++){
-             p.remover();
-             p2.inserir(j);
-         }         
+       for(int j = 0;j<=n;j++){
+                if(n!=j){
+            Integer rem = p.remover();
+             p2.inserir(rem);
+                }
+         }
           System.out.println(p2);
     }
 }
