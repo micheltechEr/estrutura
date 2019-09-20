@@ -1,0 +1,21 @@
+package questa010;
+public class Questao010d {
+    public static void main(String[] args) {
+        Fila f  = new Fila(5);
+        int n = 3; //A posicao do elemento
+        for(int i = 1;i<f.ell.length;i++){ //Enche a fila
+            f.inserir(i);
+        }
+        f.imprime();
+        System.out.println("\n");
+        for(int j = 1;j<f.ell.length;j++){ //Esvazia a fila,pois alguns elementos removidos,irão voltar
+            f.remover();
+          }
+      for(int i = 1;i<f.ell.length;i++){ //Insere os elementos removidos,menos o "n"
+          if(i!=n){ 
+              f.inserir(i);
+          }
+      }
+      f.imprime();
+    }
+}
